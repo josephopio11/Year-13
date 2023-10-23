@@ -1,0 +1,39 @@
+DECLARE List : ARRAY[1:10] OF INTEGER
+List <- [1,3,5,7,9,2,4,6,8,10]
+
+ 
+
+
+FUNCTION BubbleSort(List:ARRAY) RETURNS ARRAY
+    // DECLARE Index, Temp, Count : INTEGER
+    // You dont need to declare Count, Index, Temp
+    
+    Temp <- 0
+    FOR Count <- 1 TO LEN(List)
+        FOR Index <- 1 TO LEN(List)
+            IF List[Index] > List[Index+1]
+                THEN
+                    Temp <- List[Index]
+                    List[Index] <- List[Index + 1]
+                    List[Index + 1] <- Temp
+        NEXT Index
+    NEXT Count
+    // You must remember to return the list
+    // Also remember to close the function
+    RETURN List
+ENDFUNCTION
+
+ 
+
+
+def BubbleSort(List):
+    Temp = 0
+    for Count in range(0, len(List)-1):
+        for Index in range(0, len(List)-1):
+            if List[Index] > List[Index + 1]:
+                Temp = List[Index]
+                List[Index] = List[Index + 1]
+                List[Index + 1] = Temp
+    return List
+List = [1,3,5,7,9,2,4,6,8,10]
+print(BubbleSort(List))

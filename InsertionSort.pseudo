@@ -1,0 +1,9 @@
+FOR Value <- 1 TO NumberOfItems - 1
+    ItemToBeInserted <- LIst[Value]
+    CurrentItem <- Value - 1 //Set the value to the last item in the list
+    WHILE (List[CurrentItem] > ItemToBeInserted) AND (CurrentItem > -1) DO
+        List[CurrentItem + 1] <- List[CurrentItem] // move current item down
+        CurrentItem <- CurrentItem - 1 // look at the item above
+    ENDWHILE
+    List[CurrentItem + 1] <- ItemToBeInserted // insert the item
+NEXT Value

@@ -1,0 +1,38 @@
+Found <- FALSE
+SearchFailed <- FALSE
+// Assume that we have a list of items called List
+// We are assuming that the search item is called SearchItem
+//Set boundaries of our search
+first <- 1
+last <- LEN(List)
+// Search for the item until we find it or we have searched the entire list
+WHILE NOT Found AND NOT SearchFailed DO
+    // find the middle item
+    Middle <- (first + last) DIV 2 
+    // if the middle item is the item we are looking for, we are done
+    IF List[Middle] = SearchItem
+        THEN
+            Found <- TRUE
+        ELSE
+            IF first >= last
+                THEN
+                    SearchFailed <- TRUE
+                ELSE
+                    IF List[Middle] > SearchItem
+                        THEN
+                            // Search the first half of the list
+                            last <- Middle - 1
+                        ELSE
+                            // Search the second half of the list
+                            first <- Middle + 1
+                    ENDIF
+            ENDIF
+    ENDIF
+ENDWHILE
+
+IF Found
+    THEN
+        OUTPUT "Item found at position ", Middle
+    ELSE
+        OUTPUT "Item not found"
+ENDIF
